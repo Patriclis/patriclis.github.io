@@ -3,12 +3,8 @@ import { useState, useEffect } from 'react';
 import { FilterDropdown, SkillFilterDropdown } from './EquipmentList/FilterDropdown';
 import EquipmentList from './EquipmentList/EquipmentList';
 import GearsetDisplay from './GearsetDisplay/GearsetDisplay';
-
-const jobs: Array<Job> = require('../data/jobs.json')[0];
-const races: Array<Race> = require('../data/races.json')[0];
-const genders: Array<Gender> = require('../data/genders.json')[0];
-const slots: Array<Slot> = require('../data/slots.json')[0];
-const skills: Array<Skill> = require('../data/skills.json')[0];
+import { useAppSelector, useAppDispatch } from '../app/hooks';
+import { addToGearset } from '../app/features/gearsetSlice';
 
 const FFXISetBuilder = () => {
   const [job, setJob] = useState(1);
@@ -18,17 +14,17 @@ const FFXISetBuilder = () => {
   const [skill, setSkill] = useState(0);
   const [minLevel, setMinLevel] = useState<number>(1);
   const [maxLevel, setMaxLevel] = useState<number>(99);
-  const [equipment, setEquipment] = useState<Item | undefined>(undefined);
-  const [gearset, setGearset] = useState<Gearset>({} as Gearset);
+  const [equipment, setEquipment] = useState<Item>({} as Item);
+  const gearset = useAppSelector((state) => state.gearset.value);
+  const jobs = useAppSelector((state) => state.jobs.value);
+  const races = useAppSelector((state) => state.races.value);
+  const genders = useAppSelector((state) => state.genders.value);
+  const slots = useAppSelector((state) => state.slots.value);
+  const skills = useAppSelector((state) => state.skills.value);
+  const dispatch = useAppDispatch();
 
   const selectEquipment = (item: Item) => {
     setEquipment(item);
-  }
-
-  const addToSet = () => {
-    var set = { ...gearset };
-    set[slots[slot].gsName as keyof Gearset] = equipment;
-    setGearset(set);
   }
 
   const changeSlot = (slotName: string) => {
@@ -40,7 +36,7 @@ const FFXISetBuilder = () => {
   }
 
   useEffect(() => {
-    setEquipment(undefined);
+    setEquipment({} as Item);
   }, [job, race, gender, slot]);
 
   return (
@@ -59,11 +55,11 @@ const FFXISetBuilder = () => {
       </div>
 
       <div className="gear-display">
-        <GearsetDisplay gearset={gearset} changeSlot={changeSlot} slots={slots}/>
+        <GearsetDisplay changeSlot={changeSlot} slots={slots} />
         <div className="description">
           {equipment !== undefined ? equipment.description : ""}
         </div>
-        <button className="add-to-set-btn" onClick={addToSet}>Submit</button>
+        <button className="add-to-set-btn" onClick={() => dispatch(addToGearset({ equipment: equipment, slotName: slots[slot].gsName as keyof Gearset }))}>Submit</button>
       </div>
     </div>
   );

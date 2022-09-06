@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
+import { useAppSelector } from "../../app/hooks";
 import "./GearsetDisplay.scss";
 import GearsetDisplayItem from './GearsetDisplayItem';
 
 type props = {
-    gearset: Gearset,
     changeSlot: Function,
     slots: Array<Slot>
 }
@@ -14,10 +14,11 @@ type statSummary = {
 
 const GearsetDisplay = (props: props) => {
     var [stats, setStats] = useState<statSummary>({});
+    var gearset = useAppSelector((state) => state.gearset.value);
 
     useEffect(() => {
         var _stats: statSummary = {};
-        for (const [key, value] of Object.entries(props.gearset)) {
+        for (const [key, value] of Object.entries(gearset)) {
             if (value != undefined) {
                 for (const [k, v] of Object.entries(value.stats as Item)) {
                     var num = parseInt(v.replace(/\d+% ?/g, ""));
@@ -30,7 +31,7 @@ const GearsetDisplay = (props: props) => {
             }
         }
         setStats(_stats);
-    }, [props.gearset])
+    }, [gearset])
 
     return (
         <div className="gearset-wrapper">
@@ -39,7 +40,7 @@ const GearsetDisplay = (props: props) => {
                     <tbody>
                         {
                             Object.entries(stats).map((k) => {
-                                return (<tr><td>{k[0]}</td><td>{k[1]}</td></tr>);
+                                return (<tr key={k[0]}><td>{k[0]}</td><td>{k[1]}</td></tr>);
                             })
                         }
                     </tbody>
@@ -48,28 +49,28 @@ const GearsetDisplay = (props: props) => {
             <table className="gearset-table">
                 <tbody>
                     <tr>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.main} slotName="Main"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.sub} slotName="Sub"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.range} slotName="Range"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.ammo} slotName="Ammo"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.main} slotName="Main"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.sub} slotName="Sub"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.range} slotName="Range"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.ammo} slotName="Ammo"></GearsetDisplayItem>
                     </tr>
                     <tr>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.head} slotName="Head"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.neck} slotName="Neck"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.leftEar} slotName="Left Ear"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.rightEar} slotName="Right Ear"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.head} slotName="Head"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.neck} slotName="Neck"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.leftEar} slotName="Left Ear"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.rightEar} slotName="Right Ear"></GearsetDisplayItem>
                     </tr>
                     <tr>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.body} slotName="Body"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.hands} slotName="Hands"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.leftRing} slotName="Left Ring"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.rightRing} slotName="Right Ring"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.body} slotName="Body"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.hands} slotName="Hands"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.leftRing} slotName="Left Ring"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.rightRing} slotName="Right Ring"></GearsetDisplayItem>
                     </tr>
                     <tr>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.back} slotName="Back"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.waist} slotName="Waist"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.legs} slotName="Legs"></GearsetDisplayItem>
-                        <GearsetDisplayItem changeSlot={props.changeSlot} item={props.gearset.feet} slotName="Feet"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.back} slotName="Back"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.waist} slotName="Waist"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.legs} slotName="Legs"></GearsetDisplayItem>
+                        <GearsetDisplayItem changeSlot={props.changeSlot} item={gearset.feet} slotName="Feet"></GearsetDisplayItem>
                     </tr>
                 </tbody>
             </table>

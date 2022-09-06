@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import EquipmentListItem from './EquipmentListItem';
 import './EquipmentList.scss';
+import { useAppSelector, useAppDispatch } from '../../app/hooks';
 
 type props = {
     job: number,
@@ -19,12 +20,12 @@ type props = {
 };
 
 const EquipmentList = (props: props) => {
-    const data: Array<Item> = require('../../data/equipment/equipment.json');
+    const equipment = useAppSelector((state) => state.equipment.value);
     const [items, setItems] = useState(Array<Item>);
 
     const filterItems = () => {
         var _items = [];
-        _items = data.filter(function (item) {
+        _items = equipment.filter(function (item) {
             if (item.jobs.includes(props.jobs[props.job].ens)
                 && item.slots.includes(props.slots[props.slot].en)
                 && item.races.includes(props.races[props.race].en)
