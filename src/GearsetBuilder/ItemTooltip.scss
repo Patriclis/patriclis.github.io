@@ -1,0 +1,29 @@
+.item-tooltip {
+    // visibility: hidden;
+    height: 0px;
+    .tooltip-content {
+        position: absolute;
+        z-index: 1;
+        min-width: 300px;
+        max-width: 300px;
+        background-color: black;
+        text-align: left;
+        color: #fff;
+        
+
+        font-size: 12px;
+        font-weight: normal;
+
+        .tooltip-line {
+            margin: 8px 0px 8px 4px;
+        }
+    }
+
+    .description-header {
+        text-decoration: underline;
+        padding: 0;
+        margin: 0;
+    }
+
+    .description {}
+}

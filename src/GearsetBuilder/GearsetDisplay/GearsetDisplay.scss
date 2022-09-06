@@ -1,0 +1,23 @@
+.gearset-wrapper {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+
+    .gearset-table {
+        margin: auto;
+    }
+
+    .stat-summary {
+        width: 50%;
+        border: 1px solid black;
+        height: 300px;
+        overflow-y: auto;
+
+        .stat-table {
+            width: 100%;
+            td {
+                width: 50%;
+            }
+        }
+    }
+}

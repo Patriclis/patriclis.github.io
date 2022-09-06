@@ -1,0 +1,84 @@
+[
+    {
+        "1": {
+            "id": 1,
+            "en": "Sub",
+            "gsName": "sub"
+        },
+        "2": {
+            "id": 2,
+            "en": "Range",
+            "gsName": "range"
+        },
+        "3": {
+            "id": 3,
+            "en": "Ammo",
+            "gsName": "ammo"
+        },
+        "4": {
+            "id": 4,
+            "en": "Head",
+            "gsName": "head"
+        },
+        "5": {
+            "id": 5,
+            "en": "Body",
+            "gsName": "body"
+        },
+        "6": {
+            "id": 6,
+            "en": "Hands",
+            "gsName": "hands"
+        },
+        "7": {
+            "id": 7,
+            "en": "Legs",
+            "gsName": "legs"
+        },
+        "8": {
+            "id": 8,
+            "en": "Feet",
+            "gsName": "feet"
+        },
+        "9": {
+            "id": 9,
+            "en": "Neck",
+            "gsName": "neck"
+        },
+        "10": {
+            "id": 10,
+            "en": "Waist",
+            "gsName": "waist"
+        },
+        "11": {
+            "id": 11,
+            "en": "Left Ear",
+            "gsName": "leftEar"
+        },
+        "12": {
+            "id": 12,
+            "en": "Right Ear",
+            "gsName": "rightEar"
+        },
+        "13": {
+            "id": 13,
+            "en": "Left Ring",
+            "gsName": "leftRing"
+        },
+        "14": {
+            "id": 14,
+            "en": "Right Ring",
+            "gsName": "rightRing"
+        },
+        "15": {
+            "id": 15,
+            "en": "Back",
+            "gsName": "back"
+        },
+        "0": {
+            "id": 0,
+            "en": "Main",
+            "gsName": "main"
+        }
+    }
+]

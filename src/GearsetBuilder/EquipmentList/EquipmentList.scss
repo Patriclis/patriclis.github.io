@@ -1,0 +1,15 @@
+.equipment-list-wrapper {
+    .equipment-list {
+        list-style-type: none;
+        background-color: rgb(206, 199, 250);
+        margin: 0px;
+        padding: 0px;
+        width: 300px;
+        vertical-align: middle;
+
+    }
+
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
