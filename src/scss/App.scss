@@ -11,40 +11,42 @@ body,
 }
 
 .site-main-body-wrapper {
-    position: relative;
-    min-height: calc(100% - 100px);
-    height: calc(100% - 100px);
-    top: 100px;
-    background-image: linear-gradient(to bottom right, rgb(244, 120, 30), rgb(219, 127, 62));
-    margin: auto;
-    overflow-y: auto;
-}
-
-.site-main-body {
-    margin: auto;
-    background-color: steelblue;
-    width: 60%;
-    min-width: 800px;
-    min-height: 100%;
+    background-image: url("../images/background.jpg");
     height: 100%;
+    width: 100%;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
+.bulletin-wrapper {
+    position: absolute;
+    top: 150px;
+    left: 300px;
+    height: 750px;
+    width: 1250px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgb(136, 136, 136) 0px 0px 6px;
+    padding: 0px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
+.top-bar {
+    display: block;
+    // float: right;
+    height: 40px;
+    background-color: rgba(200,200,200,0.2);
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #888;
+.btn-bar {
+    text-align: right;
+    padding-top: 3px;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
+.carousel {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.tab-bar {
+    margin-top: 0px
 }
