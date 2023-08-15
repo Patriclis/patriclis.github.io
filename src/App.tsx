@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from 'react';
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
@@ -12,6 +13,11 @@ import './scss/App.scss';
 
 
 function App() {
+  const [editMode, setEditMode] = useState(false);
+
+  var bulletins:Array<Bulletin> = [];
+
+
   //State var here for mode  edit/view
   //Pass it to tab layout.
 
@@ -30,12 +36,12 @@ function App() {
         <div className="bulletin-inner-wrapper">
           <div className="top-bar">
             <div className="btn-bar">
-              <IconButton className="btn" size="small"><EditIcon /> </IconButton>
+              <IconButton className="btn" size="small"><EditIcon onClick={() => {setEditMode(!editMode)}} /> </IconButton>
               <IconButton className="btn" size="small"><RefreshIcon /> </IconButton>
               <IconButton className="btn" size="small"><CloseIcon /> </IconButton>
             </div>
           </div>
-          <TabLayout></TabLayout> 
+          <TabLayout></TabLayout>
         </div>
       </div>
 

@@ -8,7 +8,6 @@ export interface ItemProps {
     body: string
 }
 
-
 export function Item(props: ItemProps) {
     const { children, title, body, ...other } = props;
 

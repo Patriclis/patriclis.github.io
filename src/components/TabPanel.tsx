@@ -2,7 +2,6 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Carousel from 'react-material-ui-carousel'
 
-
 export interface TabPanelProps {
     children?: React.ReactNode;
     index: number;
