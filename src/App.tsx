@@ -8,14 +8,15 @@ import EditIcon from '@mui/icons-material/Edit';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { TabLayout } from './components/TabLayout';
 import './scss/App.scss';
-
-
+import categoryData from "./data/categories.json";
+import bulletinData from "./data/bulletins.json";
 
 
 function App() {
   const [editMode, setEditMode] = useState(false);
+  const [bulletins, setBulletins] = useState(bulletinData);
+  const [categories, setCategories] = useState(categoryData);
 
-  var bulletins:Array<Bulletin> = [];
 
 
   //State var here for mode  edit/view
@@ -36,12 +37,12 @@ function App() {
         <div className="bulletin-inner-wrapper">
           <div className="top-bar">
             <div className="btn-bar">
-              <IconButton className="btn" size="small"><EditIcon onClick={() => {setEditMode(!editMode)}} /> </IconButton>
+              <IconButton className="btn" size="small" onClick={() => {setEditMode(!editMode)}} ><EditIcon /> </IconButton>
               <IconButton className="btn" size="small"><RefreshIcon /> </IconButton>
               <IconButton className="btn" size="small"><CloseIcon /> </IconButton>
             </div>
           </div>
-          <TabLayout></TabLayout>
+          <TabLayout editMode={editMode} bulletins={bulletins} categories={categories}></TabLayout>
         </div>
       </div>
 

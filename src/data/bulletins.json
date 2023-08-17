@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "categoryId": 1,
+        "posted": "01/01/2023",
+        "expires": "12/01/2023",
+        "body": "This is a bulletin for calian"
+    },
+    {
+        "id": 2,
+        "categoryId": 2,
+        "posted": "01/01/2023",
+        "expires": "12/01/2023",
+        "body": "This is a bulletin for maestro"
+    },
+    {
+        "id": 3,
+        "categoryId": 2,
+        "posted": "01/01/2023",
+        "expires": "12/01/2023",
+        "body": "This is a bulletin for mastro 2"
+    },
+    {
+        "id": 4,
+        "categoryId": 1,
+        "posted": "01/01/2023",
+        "expires": "12/01/2023",
+        "body": "This is a bulletin for calian 2"
+    }
+]
