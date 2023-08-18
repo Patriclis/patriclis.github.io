@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Badge, { BadgeProps } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
-import { MyTab } from './MyTab';
 
 import { TabPanelProps } from './TabPanel';
 import { TabPanel } from './TabPanel';
@@ -29,13 +28,14 @@ export function TabLayout(props: TablayoutProps) {
 
     const StyledBadge = styled(Badge)<BadgeProps>(({ theme }) => ({
         '& .MuiBadge-badge': {
-            right: 2,
-            top: 15,
+            right: -35,
+            top: -5,
             padding: '0 4px',
             fontSize: '14px',
             pointerEvents: 'none'
         },
     }));
+
 
     return (
         <>
@@ -46,32 +46,30 @@ export function TabLayout(props: TablayoutProps) {
                     className="tab-bar"
                 >
                     {props.categories.map((c) => {
-                        return <MyTab name={c.name} notif={3}/>;
+                        return (
+                            <Tab label={c.name} icon={<StyledBadge badgeContent={1} color="error" />} />
+                        );
                     })}
-                    {/* <Tab label="Calian" />
-                    <StyledBadge badgeContent={4} color="error" />
-                    <Tab label="Maestro" />
-                    <StyledBadge badgeContent={2} color="error" />
-                    <Tab label="Unified Resolve 24" />
-                    <StyledBadge badgeContent={0} color="error" />
-                    <Tab label="Cyber TTX 24" />
-                    <StyledBadge badgeContent={1} color="error" /> */}
                 </Tabs>
             </Box>
             <TabPanel value={value} index={0}>
-                <Item title={'Calian 01'} body={calianBodyOne}> </Item>
-
-                <Item title={'Calian 02'} body={calianBodyTwo}></Item>
+                {props.bulletins.map((b) => {
+                    if (b.categoryId === 1) {
+                        return (
+                            <Item title={b.title} body={b.body}> </Item>
+                        );
+                    } else { return null; }
+                }).filter(c => c !== null)}
             </TabPanel>
             <TabPanel value={value} index={1}>
-                Maestro News Bulletins
+                {props.bulletins.map((b) => {
+                    if (b.categoryId === 2) {
+                        return (
+                            <Item title={b.title} body={b.body}> </Item>
+                        );
+                    } else { return null; }
+                }).filter(c => c !== null)}
             </TabPanel>
-            {/* <TabPanel value={value} index={2}>
-                Unified Resolve 2024 Bulletins
-            </TabPanel>
-            <TabPanel value={value} index={3}>
-                Cyber TTX 24 Bulletins
-            </TabPanel> */}
         </>
     );
 }
