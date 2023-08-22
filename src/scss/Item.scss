@@ -1,11 +1,19 @@
 .carousel-paper {
-    height: 600px;
-    box-shadow: none !important;
+    height: 575px;
+    box-shadow: 4px 4px 10px -2px #000000 !important;
+    border-radius: 0 !important;
+    border: 1px solid rgba(0,0,0,0.25);
     overflow-y: auto;
     overflow-x: auto;
+    width: 85%;
+    margin: auto;
 }
 
-.title {
-    padding-top: 0px;
-    margin-top: 0px;
+.bulletin-body, .editorClassName{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.editorClassName {
+    border-top: 1px solid rgba(0,0,0,0.25);  
 }

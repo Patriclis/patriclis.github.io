@@ -3,7 +3,6 @@ type Bulletin = {
     categoryId: int,
     posted: string,
     expires: string,
-    title: string,
     body: string
 }
 

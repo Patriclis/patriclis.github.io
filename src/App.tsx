@@ -43,10 +43,6 @@ function App() {
           <TabLayout editMode={editMode} bulletins={bulletins} categories={categories}></TabLayout>
         </div>
       </div>
-
-
-
-
     </div>
   );
 }

@@ -6,8 +6,9 @@ import Box from '@mui/material/Box';
 import Badge, { BadgeProps } from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 
-import { TabPanelProps } from './TabPanel';
-import { TabPanel } from './TabPanel';
+import { BulletinEditor } from './BulletinEditor';
+import { WritePanel } from './WritePanel';
+import { ReadPanel } from './ReadPanel';
 import { Item } from './Item';
 
 export interface TablayoutProps {
@@ -52,24 +53,46 @@ export function TabLayout(props: TablayoutProps) {
                     })}
                 </Tabs>
             </Box>
-            <TabPanel value={value} index={0}>
-                {props.bulletins.map((b) => {
-                    if (b.categoryId === 1) {
-                        return (
-                            <Item title={b.title} body={b.body}> </Item>
-                        );
-                    } else { return null; }
-                }).filter(c => c !== null)}
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-                {props.bulletins.map((b) => {
-                    if (b.categoryId === 2) {
-                        return (
-                            <Item title={b.title} body={b.body}> </Item>
-                        );
-                    } else { return null; }
-                }).filter(c => c !== null)}
-            </TabPanel>
+            {props.editMode === true ?
+                <>
+                    <ReadPanel value={value} index={0}>
+                        {props.bulletins.map((b) => {
+                            if (b.categoryId === 1) {
+                                return (
+                                    <Item body={b.body}> </Item>
+                                );
+                            } else { return null; }
+                        }).filter(c => c !== null)}
+                    </ReadPanel>
+                    <ReadPanel value={value} index={1}>
+                        {props.bulletins.map((b) => {
+                            if (b.categoryId === 2) {
+                                return (
+                                    <Item body={b.body}> </Item>
+                                );
+                            } else { return null; }
+                        }).filter(c => c !== null)}
+                    </ReadPanel>
+                </> : <>
+                    <WritePanel value={value} index={0}>
+                        {props.bulletins.map((b) => {
+                            if (b.categoryId === 1) {
+                                return (
+                                    <BulletinEditor bulletin={b}/>
+                                );
+                            } else { return null; }
+                        }).filter(c => c !== null)}
+                    </WritePanel>
+                    <WritePanel value={value} index={1}>
+                        {props.bulletins.map((b) => {
+                            if (b.categoryId === 2) {
+                                return (
+                                    <BulletinEditor bulletin={b}/>
+                                );
+                            } else { return null; }
+                        }).filter(c => c !== null)}
+                    </WritePanel>
+                </>}
         </>
     );
 }

@@ -2,14 +2,14 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Carousel from 'react-material-ui-carousel'
 
-export interface TabPanelProps {
+export interface ReadPanelProps {
     children?: React.ReactNode;
     index: number;
     value: number;
     // items: Array<Item>;
 }
 
-export function TabPanel(props: TabPanelProps) {
+export function ReadPanel(props: ReadPanelProps) {
     const { children, value, index, ...other } = props;
 
     return (
@@ -29,6 +29,7 @@ export function TabPanel(props: TabPanelProps) {
                                 marginTop: '5px', // 5
                             }
                         }}
+                        navButtonsAlwaysVisible={true}
                         animation='fade' duration={250} autoPlay={false}
                     >
                         {children}

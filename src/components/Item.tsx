@@ -1,23 +1,21 @@
 import { Paper, Button } from '@mui/material'
 import Divider from '@mui/material/Divider';
-import '../scss/Item.scss'
+import '../scss/Item.scss';
+import parse from 'html-react-parser';
 
 export interface ItemProps {
     children?: React.ReactNode;
-    title: string,
     body: string
 }
 
 export function Item(props: ItemProps) {
-    const { children, title, body, ...other } = props;
+    const { children, body, ...other } = props;
 
     return (
         <>
             <Paper className="carousel-paper">
-                <h2 className="title">{title}</h2>
-                <p>{body}</p>
+                <div className="bulletin-body">{parse(body)}</div>
             </Paper>
-            <Divider variant="middle" />
         </>
     )
 }

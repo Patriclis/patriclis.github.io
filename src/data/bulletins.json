@@ -4,31 +4,27 @@
         "categoryId": 1,
         "posted": "01/01/2023",
         "expires": "12/01/2023",
-        "title": "MyTitle",
-        "body": "This is a bulletin for calian"
+        "body": "<p>This is a bulletin for calian</p>"
     },
     {
         "id": 2,
         "categoryId": 2,
         "posted": "01/01/2023",
         "expires": "12/01/2023",
-        "title": "MyTitle",
-        "body": "This is a bulletin for maestro"
+        "body": "<p>This is a bulletin for maestro</p>"
     },
     {
         "id": 3,
         "categoryId": 2,
         "posted": "01/01/2023",
         "expires": "12/01/2023",
-        "title": "MyTitle",
-        "body": "This is a bulletin for mastro 2"
+        "body": "<p>This is a bulletin for mastro 2</p>"
     },
     {
         "id": 4,
         "categoryId": 1,
         "posted": "01/01/2023",
         "expires": "12/01/2023",
-        "title": "MyTitle",
-        "body": "This is a bulletin for calian 2"
+        "body": "<p>This is a bulletin for calian 2</p>"
     }
 ]
