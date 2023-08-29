@@ -74,24 +74,21 @@ export function TabLayout(props: TablayoutProps) {
                         }).filter(c => c !== null)}
                     </ReadPanel>
                 </> : <>
-                    <WritePanel value={value} index={0}>
-                        {props.bulletins.map((b) => {
-                            if (b.categoryId === 1) {
-                                return (
-                                    <BulletinEditor bulletin={b}/>
-                                );
-                            } else { return null; }
-                        }).filter(c => c !== null)}
+                    <WritePanel value={value} index={0} bulletins={props.bulletins.map((b) => {
+                        if (b.categoryId === 1) {
+                            return b;
+                        } else { return null; }
+                    }).filter(c => c !== null)} >
                     </WritePanel>
-                    <WritePanel value={value} index={1}>
+                    {/* <WritePanel value={value} index={1}>
                         {props.bulletins.map((b) => {
                             if (b.categoryId === 2) {
                                 return (
-                                    <BulletinEditor bulletin={b}/>
+                                    <BulletinEditor bulletin={b} />
                                 );
                             } else { return null; }
                         }).filter(c => c !== null)}
-                    </WritePanel>
+                    </WritePanel> */}
                 </>}
         </>
     );
