@@ -2,22 +2,29 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Carousel from 'react-material-ui-carousel';
 import { BulletinList } from './BulletinList';
+import { BulletinEditor } from './BulletinEditor';
+import '../scss/WritePanel.scss';
 
 export interface WritePanelProps {
-    children?: React.ReactNode;
-    index: number;
-    value: number;
+    children?: React.ReactNode
+    index: number
+    value: number
     bulletins: Array<Bulletin | null>
-    // items: Array<Item>;
+    updateBulletins: Function
 }
 
 export function WritePanel(props: WritePanelProps) {
+    const [bulletin, selectBulletin] = React.useState<Bulletin>();
+
     const { children, value, index, ...other } = props;
 
-    const selectBulletin = (b: number) => {
-        console.log(b);
+    const updateTitle = (title: string) => {
+        var b = bulletin;
+        if (b)
+            b.title = title;
+        selectBulletin(b);
+        props.updateBulletins(props.bulletins);
     }
-
 
     return (
         <div
@@ -29,26 +36,15 @@ export function WritePanel(props: WritePanelProps) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 1, height: '100%' }}>
-                    <BulletinList bulletins={props.bulletins} selectBulletin={selectBulletin}/>
-
-
-
-
-                    <Carousel className="carousel"
-                        indicatorContainerProps={{
-                            style: {
-                                marginTop: '5px',
-                            }
-                        }}
-                        navButtonsAlwaysVisible={true}
-                        swipe={false}
-                        animation='fade' duration={250} autoPlay={false}
-                    >
-                        {children}
-                    </Carousel>
+                <Box className="write-panel" sx={{ p: 1, height: '100%' }}>
+                    <BulletinList bulletins={props.bulletins} selectBulletin={selectBulletin} bulletin={bulletin}/>
+                    {bulletin !== undefined ?
+                        <BulletinEditor key={bulletin.id} bulletin={bulletin} updateTitle={updateTitle} />
+                        : <></>
+                    }
                 </Box>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 }

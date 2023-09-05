@@ -2,6 +2,7 @@
     {
         "id": 1,
         "categoryId": 1,
+        "title":"Calian Bulletin 01",
         "posted": "01/01/2023",
         "expires": "12/01/2023",
         "body": "<p>This is a bulletin for calian</p>"
@@ -9,6 +10,7 @@
     {
         "id": 2,
         "categoryId": 2,
+        "title":"Maestro Bulletin 01",
         "posted": "01/01/2023",
         "expires": "12/01/2023",
         "body": "<p>This is a bulletin for maestro</p>"
@@ -16,6 +18,7 @@
     {
         "id": 3,
         "categoryId": 2,
+        "title":"Maestro Bulletin 02",
         "posted": "01/01/2023",
         "expires": "12/01/2023",
         "body": "<p>This is a bulletin for mastro 2</p>"
@@ -23,6 +26,7 @@
     {
         "id": 4,
         "categoryId": 1,
+        "title":"Calian Bulletin 02 That Has A Long Name That Is Very Long!!",
         "posted": "01/01/2023",
         "expires": "12/01/2023",
         "body": "<p>This is a bulletin for calian 2</p>"

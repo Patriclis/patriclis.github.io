@@ -1,5 +1,6 @@
 type Bulletin = {
     id: number,
+    title: string,
     categoryId: int,
     posted: string,
     expires: string,

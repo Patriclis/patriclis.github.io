@@ -5,12 +5,12 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
+import AddIcon from '@mui/icons-material/Add';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { TabLayout } from './components/TabLayout';
 import './scss/App.scss';
 import categoryData from "./data/categories.json";
 import bulletinData from "./data/bulletins.json";
-
 
 function App() {
   const [editMode, setEditMode] = useState(false);
@@ -26,6 +26,10 @@ function App() {
 
   //Try to move the carousel buttons off to the side and make them permanent.
 
+  const newBulletin = () => {
+    var b = bulletins;
+  }
+
   return (
     <div className="app">
       <div className="site-main-body-wrapper">
@@ -35,12 +39,14 @@ function App() {
         <div className="bulletin-inner-wrapper">
           <div className="top-bar">
             <div className="btn-bar">
+              <IconButton className="btn" size="small" onClick={() => { newBulletin() }} ><AddIcon /> </IconButton>
+
               <IconButton className="btn" size="small" onClick={() => { setEditMode(!editMode) }} ><EditIcon /> </IconButton>
               <IconButton className="btn" size="small"><RefreshIcon /> </IconButton>
               <IconButton className="btn" size="small"><CloseIcon /> </IconButton>
             </div>
           </div>
-          <TabLayout editMode={editMode} bulletins={bulletins} categories={categories}></TabLayout>
+          <TabLayout editMode={editMode} bulletins={bulletins} updateBulletins={setBulletins} categories={categories}></TabLayout>
         </div>
       </div>
     </div>
