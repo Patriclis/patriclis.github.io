@@ -15,7 +15,7 @@ export interface TablayoutProps {
     editMode: boolean,
     bulletins: Array<Bulletin>,
     categories: Array<Category>,
-    updateBulletins: Function
+    updatebulletins: Function
 }
 
 export function TabLayout(props: TablayoutProps) {
@@ -51,7 +51,7 @@ export function TabLayout(props: TablayoutProps) {
                     })}
                 </Tabs>
             </Box>
-            {props.editMode === true ?
+            {props.editMode === false ?
                 <>
                     <ReadPanel value={value} index={0}>
                         {props.bulletins.map((b) => {
@@ -72,18 +72,10 @@ export function TabLayout(props: TablayoutProps) {
                         }).filter(c => c !== null)}
                     </ReadPanel>
                 </> : <>
-                    <WritePanel updateBulletins={props.updateBulletins} value={value} index={0} bulletins={props.bulletins.map((b) => {
-                        if (b.categoryId === 1) {
-                            return b;
-                        } else { return null; }
-                    }).filter(c => c !== null)} >
+                    <WritePanel categoryid={1} updatebulletins={props.updatebulletins} value={value} index={0} bulletins={props.bulletins} >
                     </WritePanel>
                     
-                    <WritePanel updateBulletins={props.updateBulletins} value={value} index={1} bulletins={props.bulletins.map((b) => {
-                        if (b.categoryId === 2) {
-                            return b;
-                        } else { return null; }
-                    }).filter(c => c !== null)} >
+                    <WritePanel categoryid={2} updatebulletins={props.updatebulletins} value={value} index={1} bulletins={props.bulletins} >
                     </WritePanel>
                 </>}
         </>

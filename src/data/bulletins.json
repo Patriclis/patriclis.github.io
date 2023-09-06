@@ -5,7 +5,7 @@
         "title":"Calian Bulletin 01",
         "posted": "01/01/2023",
         "expires": "12/01/2023",
-        "body": "<p>This is a bulletin for calian</p>"
+        "body": "<h3>Notifications&nbsp;</h3><p>Notifications would go out to users if a new bulletin is posted when they're actively online.&nbsp;</p><h3>Expiration</h3><p>Bulletins would also have an expiration date (can be null) which would make the bulletin dissapear from view after a given date. This would be for displaying information that's only relevant over a given period of time.</p><h3>Permissions&nbsp;</h3><p>Only users with a given permission level would be able to post notifications. This could either be tied to role (Administrator &amp; Senior Leader) or an additional permission could be added for the user manager.</p>"
     },
     {
         "id": 2,
@@ -29,6 +29,6 @@
         "title":"Calian Bulletin 02 That Has A Long Name That Is Very Long!!",
         "posted": "01/01/2023",
         "expires": "12/01/2023",
-        "body": "<p>This is a bulletin for calian 2</p>"
+        "body": "<h3>Bulletins</h3><p>Bulletins can be written with the rich-text-editor already built into Maestro and stored as html in the database. They would display in order of newest to oldest.<br></p><h3>Red Notification Icon</h3><p>The time and date of posting/modification would be stored along with it, allowing the system to show a red notification icon for the number of bulletins since they last logged in. This would allow for a simple system that doesn't need extra linking tables in the database for tracking who has viewed what bulletins, however the trade-off is less accuracy.</p><p>The alternative is to create a linking table for each user, showing whether or not they've viewed each individual bulletin. This would require more modification, but also be more accurate for giving the user proper notifications</p><p></p><h3></h3>"
     }
 ]

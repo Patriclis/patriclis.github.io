@@ -22,6 +22,7 @@ export function BulletinEditor(props: BulletinEditorProps) {
     );
 
     const updateBulletinBody = () => {
+        console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
         props.bulletin.body = draftToHtml(convertToRaw(editorState.getCurrentContent()));
     }
 
