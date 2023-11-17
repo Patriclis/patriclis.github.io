@@ -1,0 +1,12 @@
+[
+    {
+        "name": "MELT DPS",
+        "character": "Amber",
+        "SetOne": "Shimenawa's Reminiscence",
+        "SetTwo": "Shimenawa's Reminiscence",
+        "Substats": ["Crit DMG (%)", "ATK (%)", "Elemental Mastery", "ATK"],
+        "SandsStat": "ATK (%)",
+        "GobletStat": "Pyro Damage Bonus (%)",
+        "CrownStat": "Crit DMG (%)"
+    }
+]

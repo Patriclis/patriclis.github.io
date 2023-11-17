@@ -1,9 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import itemReducer from './slices/ItemSlice';
+import artifactSetReducer from './slices/ArtifactSetSlice';
+import characterReducer from './slices/CharacterSlice';
+import domainReducer from './slices/DomainSlice';
+import buildReducer from './slices/BuildSlice';
 
 const store = configureStore({
     reducer: {
-        items: itemReducer,
+        artifactSets: artifactSetReducer,
+        characters: characterReducer,
+        domains: domainReducer,
+        builds: buildReducer,
     },
 })
 
